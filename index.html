@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Send to Press</title>
+</head>
+<body>
+
+<h2>Send to news agencies</h2>
+
+<input id="name" placeholder="Your name"><br><br>
+<input id="email" placeholder="Your email"><br><br>
+
+<button onclick="openEmail()">Ready</button>
+
+<script>
+  const AGENCIES = [
+    "mark.carney@parl.gc.ca",
+    "anita.anand@parl.gc.ca",
+    "francois-philippe.champagne@parl.gc.ca",
+    "gary.anandasangaree@parl.gc.ca",
+    "steven.mackinnon@parl.gc.ca",
+    "arif.virani@parl.gc.ca",
+    "yaara.saks@parl.gc.ca",
+    "jonathan.wilkinson@parl.gc.ca",
+    "perry.bellegarde@parl.gc.ca",
+    "gary.merasty@parl.gc.ca",
+    "lawrence.macaulay@parl.gc.ca",
+    "patty.hajdu@parl.gc.ca",
+    "karina.gould@parl.gc.ca",
+    "seamus.oregan@parl.gc.ca",
+    "pablo.rodriguez@parl.gc.ca",
+    "sean.fraser@parl.gc.ca",
+    "filomena.tassi@parl.gc.ca",
+    "phil.mccoleman@parl.gc.ca",
+    "steven.guilbeault@parl.gc.ca",
+    "bill.blair@parl.gc.ca",
+    "comments@whitehouse.gov",
+    "president@whitehouse.gov",
+    "info@donaldtrump.com"
+  ];
+
+function openEmail() {
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+
+  if (!name || !email) {
+    alert("Please enter name and email");
+    return;
+  }
+
+  const subject = "Please be the Voice of Iranian Revolution Against the Islamic Regime";
+
+  const body = `
+To Government Officials, Human Rights Institutions, and Policy Makers,
+
+Iran has now been under a complete communication blackout for three days.
+
+For over two weeks, millions of Iranians have been in the streets.  
+The death toll has exceeded 2,000.  
+The people are unarmed.  
+The Islamic Republic is using military force against civilians.
+
+All internet, phone, and international communication channels are shut down.  
+Iranians outside the country cannot reach their families.  
+Information reaches us only in fragments.  
+The images that do emerge are unbearable.
+
+This is no longer a domestic issue.  
+This is a mass human rights crime in real time.
+
+The Islamic Republic has openly declared, through its own security council, that protesters must be confronted with maximum force.  
+By its own admission, it has confirmed that it has lost all legitimacy.
+
+When a regime cuts all communication,  
+when it shoots its own people,  
+when it hides its crimes in darkness,  
+it no longer represents a nation — it occupies it.
+
+Iranians inside and outside Iran are naming Prince Reza Pahlavi as their political alternative.
+
+He is recognized by the people as their political representative and the legitimate alternative to the Islamic Republic.
+
+You are obligated — morally and politically — to engage with him.  
+To coordinate with him.  
+To recognize him as the voice of the Iranian people.
+
+The Iranian people are asking for leadership, coordination, and action — not sympathy.
+
+If you stand for democracy,  
+if you stand for human rights,  
+if you stand for the protection of civilian life,  
+this is the moment to act.
+
+Stand with the Iranian people.  
+Not in words.  
+In action.
+
+Please see a sample of images and videos in the Google Drive:
+https://drive.google.com/drive/folders/1GiRvXfp4uksV6axhNkyDKzuazK8fqEqm?usp=drive_link
+
+History will not judge neutrality kindly.
+
+Iranian Community in Canada
+${name}
+${email}
+`;
+
+  const bcc = AGENCIES.join(",");
+
+  const mailto =
+    `mailto:?bcc=${encodeURIComponent(bcc)}` +
+    `&subject=${encodeURIComponent(subject)}` +
+    `&body=${encodeURIComponent(body)}`;
+
+  window.location.href = mailto;
+}
+</script>
+
+</body>
+</html>
+
